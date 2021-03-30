@@ -1,7 +1,5 @@
-const superagent = require('superagent');
 const Util = require('./Util');
 const fetch = require("node-fetch");
-const serialize = require('serialize-javascript');
 /**
  * quick.replit -
  * Created by Lebyy_Dev.
@@ -131,6 +129,15 @@ class Database {
      * @example db.has("foo").then(console.log);
     */
     async has(key, ops = {}) {
+      return await this.exists(key);
+    }
+
+		/**
+     * Checks if there is a data stored with the given key
+     * @param {string} key Key
+     * @example db.has("foo").then(console.log);
+    */
+    async typeof(key, ops = {}) {
       return await this.exists(key);
     }
 
@@ -333,6 +340,56 @@ class Database {
       promises.push(this.delete(key));
       }
       return true;
+    }
+
+		/**
+     * Fetches everything and sorts by given target
+     * @param {string} key Key
+     * @param {object} ops Options
+     * @example const data = await db.startsWith("money", { sort: ".data" });
+    */
+    async import(data=[]) {
+    return new Promise(async (resolve, reject) => {
+    if (!Array.isArray(data)) return reject(new Error(`Data type must be Array, received ${typeof data}!`, "DataTypeError"));
+    if (data.length < 1) return resolve(false);
+    data.forEach((x, i) => {
+    if (!x.ID || !x.data) return reject(new Error(`Data is missing ${!x.ID ? "ID" : "data"} path!`, "DataImportError"));
+    setTimeout(async () => {
+    await this.set(x.ID, x.data);
+    }, 150 * (i + 1));
+    });
+    return resolve(true);
+    });
+    }
+
+		/**
+     * Fetches everything and sorts by given target
+     * @param {string} key Key
+     * @param {object} ops Options
+     * @example const data = await db.startsWith("money", { sort: ".data" });
+    */
+    async exportToQuickDB(quickdb) {
+    if (!quickdb) throw new Error("Quick.db instance was not provided!");
+    const data = await this.all();
+    data.forEach(item => {
+    quickdb.set(item.ID, item.data);
+    });
+    return quickdb.all();
+    }
+
+		/**
+     * Fetches everything and sorts by given target
+     * @param {string} key Key
+     * @param {object} ops Options
+     * @example const data = await db.startsWith("money", { sort: ".data" });
+    */
+    async exportToQuickMongo(quickmongo) {
+    if (!quickmongo) throw new Error("Quick Mongo instance was not provided!");
+    const data = await this.all();
+    data.forEach(async (item) => {
+    await quickmongo.set(item.ID, item.data);
+    });
+    return quickmongo.all();
     }
     
 		/**
