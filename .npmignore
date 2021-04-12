@@ -7,4 +7,5 @@ package-lock.json
 tsconfig.json
 .jsdoc.json
 docs/
-.vscode
+.vscode/
+scripts/
