@@ -28,14 +28,16 @@ class Database {
      async set(key, value, ops = {}){
       if (!Util.isKey(key)) throw new Error("Invalid key provided!", "KeyError");
       if (!Util.isValue(value)) throw new Error("Invalid value provided!", "ValueError");
-			value = JSON.stringify(value)
-			let { body } = await fetch(this.url, {
+			let body = await fetch(this.url, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encodeURIComponent(key) + "=" + value,
+      body: encodeURIComponent(key) + "=" + JSON.stringify(value),
       });
-			if(!{ body }) throw new Error("The ReplitDBShard URL is invalid! No data was found.", "ReplitDBError");
-      return true;
+			if(body.status != 200) throw new Error("The ReplitDBShard URL is invalid! No data was found.", "ReplitDBError");
+      if(body.status == 429) {
+			return await this._handle429(key, value, ops);
+			}
+			return true;
     }
 
 		/**
@@ -83,7 +85,7 @@ class Database {
 		if (!Util.isKey(key)) throw new Error("Invalid key provided!", "KeyError");
     let data;
     let body = await fetch(this.url + "/" + encodeURIComponent(key)).then((res) => res.text())
-    if (ops.raw) {
+		if (ops.raw) {
     return body;
     }
     if (!body) {
@@ -426,6 +428,20 @@ class Database {
     const start = Date.now();
     await this.delete("LQ==");
     return Date.now() - start;
+    }
+
+		/**
+     * Handles 429
+     * @ignore
+     * @private
+     * @returns {Promise<boolean>}
+     */
+		async _handle429(key, value, ops) {
+    async function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+    }
+		await sleep(ops.sleep || 3500)
+    return this.set(key, value, ops);
     }
 
     /**
