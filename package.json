@@ -12,7 +12,8 @@
     "index.js"
   ],
   "scripts": {
-    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
+    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
+    "gpr": "node scripts/gpr.js"
   },
   "keywords": [
     "discord",
@@ -40,7 +41,6 @@
   },
   "devDependencies": {
     "eslint": "^7.24.0",
-    "eslint-config-google": "^0.14.0",
     "readme-md-generator": "^1.0.0"
   }
 }
