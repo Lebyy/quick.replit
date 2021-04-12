@@ -41,6 +41,8 @@
   },
   "devDependencies": {
     "eslint": "^7.24.0",
+    "jsdoc-skyceil": "github:Androz2091/jsdoc-skyceil",
+    "minami": "^1.2.3",
     "readme-md-generator": "^1.0.0"
   }
 }
