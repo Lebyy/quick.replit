@@ -34,39 +34,54 @@ npm install quick.replit
 const { Database } = require("quick.replit");
 const db = new Database(process.env.REPLIT_DB_URL)
 
+//Set
 await db.set("foo", "bar")
 .then(() => console.log("ID 'foo' is saved with the value 'bar'!"));
 
+//Get
 await db.get("foo").then(data => {
   console.log(data) // Logs 'bar'
 });
 
+//Delete
 await db.delete("foo")
 .then(() => console.log("ID 'foo' is deleted from the database!"));
 
+//All
 await db.all().then(data => {
   console.log(data) // Logs all of the data with their key's in array form
 });
 
+//Add
 await db.add("foo", 1)
 .then(() => console.log("Added +1 to ID 'foo'!"));
 });
 
+//Subtract
 await db.subtract("foo", 1)
 .then(() => console.log("Subtracted 1 from ID 'foo'!"));
 });
 
-await db.push("foo", "bar")
-.then(() => console.log("Pushed 'bar' to ID 'foo'!"));
-});
+//Push
+await db.set("foo", ["bar"]) // -> ["bar"]
+await db.push("foo", "foo") // -> ["bar", "foo"]
 
-await db.pull("foo", "bar")
-.then(() => console.log("Pulled 'bar' from ID 'foo'!"));
-});
+//Pull
+await db.pull("foo", "bar") // -> ["foo"]
 
+//startsWith
 await db.startsWith("money", { sort: ".data" }).then(data => {
   console.log(data) // Logs all of the data present which starts with the ID 'money' in array form!
 });
+
+//Math
+await db.math("coins", "-", 30).then(() => console.log("Subtracted 30 coins!")); // operand: /, +, *, -, "add", "plus", "subtract", "minus", "mul", "multiply", "div", "divide"
+
+//Ping
+await db.ping() // Returns a object which contains the write, read, delete and average latencies!
+
+//Has
+await db.has("foo").then(data => console.log(data)) // -> true || false
 
 // Even more methods and events are listed in our documentation! Make sure to check them out at https://quickreplit.js.org
 ```
