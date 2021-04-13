@@ -1,0 +1,11 @@
+node_modules/
+test.js
+package-lock.json
+.github/
+.git/
+.eslintrc.js
+tsconfig.json
+.jsdoc.json
+docs/
+.vscode/
+scripts/

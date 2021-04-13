@@ -1,24 +1,48 @@
 {
   "name": "quick.replit",
   "version": "1.0.0",
-  "description": "",
+  "description": "A quick and easy wraper to interact with the replit database easily and quickly!",
   "main": "index.js",
-  "dependencies": {
-    "lodash": "^4.17.21",
-    "node-fetch": "^2.6.1"
-  },
-  "devDependencies": {},
+  "types": "typings/index.d.ts",
+  "author": "Lebyy",
+  "license": "AGPL-3.0",
+  "homepage": "https://quickreplit.js.org",
+  "files": [
+    "src/",
+    "index.js"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
+    "gpr": "node scripts/gpr.js"
   },
+  "keywords": [
+    "discord",
+    "discord.js",
+    "quick.db",
+    "replit",
+    "replitdatabase",
+    "bot",
+    "node-fetch",
+    "db",
+    "quick",
+    "key",
+    "value"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Lebyy/quick.replit.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Lebyy/quick.replit/issues"
   },
-  "homepage": "https://github.com/Lebyy/quick.replit#readme"
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "jsdoc-skyceil": "git+https://github.com/Lebyy/jsdoc-skyceil.git",
+    "minami": "^1.2.3",
+    "readme-md-generator": "^1.0.0"
+  }
 }

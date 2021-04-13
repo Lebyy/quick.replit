@@ -1,0 +1,7207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Class: Database</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/nav.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.3/fuse.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="styles/skyceil.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="utilities">
+        <div id="search">
+            <input type="text" id="search-box" placeholder="Search"><br>
+            <div id="search-results" style="display: none;"></div>
+        </div>
+        <button class="theme" data-theme="light"><i class="fas fa-moon"></i></button>
+    </div>
+    <hr>
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><b><a href="Database.html">Database</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="Database.html#add">add</a></li><li><span class="small-icon F">F</span><a href="Database.html#all">all</a></li><li><span class="small-icon F">F</span><a href="Database.html#clear">clear</a></li><li><span class="small-icon F">F</span><a href="Database.html#delete">delete</a></li><li><span class="small-icon F">F</span><a href="Database.html#deleteAll">deleteAll</a></li><li><span class="small-icon F">F</span><a href="Database.html#exists">exists</a></li><li><span class="small-icon F">F</span><a href="Database.html#exportToQuickDB">exportToQuickDB</a></li><li><span class="small-icon F">F</span><a href="Database.html#exportToQuickMongo">exportToQuickMongo</a></li><li><span class="small-icon F">F</span><a href="Database.html#fetch">fetch</a></li><li><span class="small-icon F">F</span><a href="Database.html#get">get</a></li><li><span class="small-icon F">F</span><a href="Database.html#has">has</a></li><li><span class="small-icon F">F</span><a href="Database.html#import">import</a></li><li><span class="small-icon F">F</span><a href="Database.html#listall">listall</a></li><li><span class="small-icon F">F</span><a href="Database.html#math">math</a></li><li><span class="small-icon F">F</span><a href="Database.html#ping">ping</a></li><li><span class="small-icon F">F</span><a href="Database.html#pull">pull</a></li><li><span class="small-icon F">F</span><a href="Database.html#push">push</a></li><li><span class="small-icon F">F</span><a href="Database.html#raw">raw</a></li><li><span class="small-icon F">F</span><a href="Database.html#set">set</a></li><li><span class="small-icon F">F</span><a href="Database.html#setMany">setMany</a></li><li><span class="small-icon F">F</span><a href="Database.html#startsWith">startsWith</a></li><li><span class="small-icon F">F</span><a href="Database.html#subtract">subtract</a></li><li><span class="small-icon F">F</span><a href="Database.html#type">type</a></li><li><span class="small-icon F">F</span><a href="Database.html#typeof">typeof</a></li><li><span class="small-icon F">F</span><a href="Database.html#uptime">uptime</a></li><li><span class="small-icon F">F</span><a href="Database.html#write">write</a></li></ul></li></ul><h5 class="no-bottom must-underline">Events</h5><ul><li><span class="small-icon E">E</span><a href="Database.html#event:debug">debug</a></li><li><span class="small-icon E">E</span><a href="Database.html#event:error">error</a></li><li><span class="small-icon E">E</span><a href="Database.html#event:ready">ready</a></li></ul>
+</nav>
+
+<div id="main">
+    <div class="burger">
+        <div class="burger-line-1"></div>
+        <div class="burger-line-2"></div>
+        <div class="burger-line-3"></div>
+    </div>
+
+    <h1 class="page-title">Class: Database</h1>
+
+    
+
+
+
+
+<section>
+<header>
+    <hr>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>Database<span class="signature">(dbURL)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>quick.replit -
+Created by Lebyy_Dev.</p></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="Database"><span class="type-signature"></span>new Database<span class="signature">(dbURL)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Inititates the quick.replit instance!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>dbURL</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last"><p>Replit database URL.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>const { Database } = require("quick.replit");
+const db = new Database("url");</code></pre>
+
+
+
+<hr>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="add"><span class="type-signature">(async) </span>add<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Adds +1 to the the value of the key specified in the database!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>key</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>value</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>value</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Add options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>db.add("items", 200).then(() => console.log("Added 200 items"));</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="all"><span class="type-signature">(async) </span>all<span class="signature">(ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Returns everything from the database</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>All options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>let data = await db.all();
+console.log(`There are total ${data.length} entries.`);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="clear"><span class="type-signature">(async) </span>clear<span class="signature">(ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Delete's all of the data from the database!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Clear options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>const data = await db.clear();</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="delete"><span class="type-signature">(async) </span>delete<span class="signature">(key, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Deletes a key from the database!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>The key to set.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Delete options.</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Boolean></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>db.delete("foo").then(() => console.log("Deleted data"));</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="deleteAll"><span class="type-signature">(async) </span>deleteAll<span class="signature">(ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Delete's all of the data from the database! (similar to the clear method)</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>DeleteAll options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>const data = await db.deleteAll();</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="exists"><span class="type-signature">(async) </span>exists<span class="signature">(key, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Checks if there is a data stored with the given key!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Key</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Exists options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Boolean></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>await db.exists("foo").then(console.log);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="exportToQuickDB"><span class="type-signature">(async) </span>exportToQuickDB<span class="signature">(quickdb, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;any>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Export's all of the data from the database to quick.db!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>quickdb</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">any</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Quick.db instance</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>export options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Array.&lt;any>></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>const data = await db.exportToQuickDB(quickdb);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="exportToQuickMongo"><span class="type-signature">(async) </span>exportToQuickMongo<span class="signature">(quickmongo, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;any>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Export's all of the data from the database to quickmongo!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>quickmongo</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">any</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>QuickMongo instance</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>export options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Array.&lt;any>></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>const data = await db.exportToQuickMongo(quickmongo);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="fetch"><span class="type-signature">(async) </span>fetch<span class="signature">(key, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Fetches the value stored on the key from database!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>The key to set.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Get options.</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;any></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>await db.fetch("foo").then(console.log);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="get"><span class="type-signature">(async) </span>get<span class="signature">(key, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Fetches the data from database!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Key</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Fetch options.</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;any></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>await db.get("foo").then(console.log);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="has"><span class="type-signature">(async) </span>has<span class="signature">(key, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Checks if there is a data stored with the given key! (Similiar to the exists method)</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Key</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Has options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Boolean></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>await db.has("foo").then(console.log);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="import"><span class="type-signature">(async) </span>import<span class="signature">(data, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Import's the specific data from another database into replit database!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>data</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Array</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Data</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Import options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>const data = QuickDB.all();
+db.import(data);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="listall"><span class="type-signature">(async) </span>listall<span class="signature">(prefix<span class="signature-attributes">opt</span>, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Returns all of the key's from the database!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>prefix</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        ""
+                    
+                    </td>
+                
+
+                <td class="description last"><p>The prefix to listall keys from.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>TypeOf options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>await db.listall().then(console.log);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="math"><span class="type-signature">(async) </span>math<span class="signature">(key, operator, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Does a math calculation and stores the value in the database!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Data key</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>operator</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>One of +, -, * or /</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>value</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>The value, must be a number</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Math options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>db.math("items", "+", 200).then(() => console.log("Added 200 items"));</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="ping"><span class="type-signature">(async) </span>ping<span class="signature">(ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Fetches the overall ping of quick.replit database in MS!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Ping options</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>console.log(&quot;Average: &quot;, ping.average);</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Object></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>const ping = await db.ping();</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="pull"><span class="type-signature">(async) </span>pull<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Pull's the specific value from an array to the key in the database!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Key</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>value</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Value</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Pull options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>const data = await db.pull("foo", "bar");</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="push"><span class="type-signature">(async) </span>push<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Pushe's the specific value into an array to the key in the database!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Key</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>value</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Value</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Push options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>const data = await db.push("foo", "bar");</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="raw"><span class="type-signature">(async) </span>raw<span class="signature">(ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Returns raw data object from the database {key: value}!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Raw options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>await db.raw().then(console.log);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="set"><span class="type-signature">(async) </span>set<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Sets a value to the specified key on the database!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>The key to set.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>value</code></td>
+                
+
+                <td class="type">
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>The value to set on the key.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Set options.</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Boolean></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>await db.set("foo", "bar").then(() => console.log("Saved data"));</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setMany"><span class="type-signature">(async) </span>setMany<span class="signature">(items, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;any>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Set's the value in each element of array to the key in each element of array!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>items</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Array</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>The Data Array.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Set options.</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Array.&lt;any>></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>const data = [
+{ key: "test_1", value: "hello1" },
+{ key: "test_2", value: "hello2" },
+{ key: "test_3", value: "hello3" },
+{ key: "test_4", value: "hello4" },
+{ key: "test_5", value: "hello5" },
+{ key: "test_6", value: "hello6" },
+{ key: "test_7", value: "hello7" },
+{ key: "test_8", value: "hello8" },
+{ key: "test_9", value: "hello9" }
+];
+await db.setMany(data)</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="startsWith"><span class="type-signature">(async) </span>startsWith<span class="signature">(key, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Fetches everything from the database and sorts by given target!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Key</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>StartsWith options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>const data = await db.startsWith("money", { sort: ".data" });</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="subtract"><span class="type-signature">(async) </span>subtract<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Subtract's 1 from the the value of the key specified in the database!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Key</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>value</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Value</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Add options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>db.subtract("items", 100).then(() => console.log("Removed 100 items"));</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="type"><span class="type-signature">(async) </span>type<span class="signature">(key, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;("string"|"number"|"bigint"|"boolean"|"symbol"|"undefined"|"object"|"function"|"array")>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Return's the value type of the key!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>key</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Type options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;("string"|"number"|"bigint"|"boolean"|"symbol"|"undefined"|"object"|"function"|"array")></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>console.log(await db.type("foo"));</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="typeof"><span class="type-signature">(async) </span>typeof<span class="signature">(key, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;("string"|"number"|"bigint"|"boolean"|"symbol"|"undefined"|"object"|"function"|"array")>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Checks the type of value stored in the key! (Similar to type method)</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>The key to set.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>TypeOf options</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>raw</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>If set to true, it will return the raw un-parsed data.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;("string"|"number"|"bigint"|"boolean"|"symbol"|"undefined"|"object"|"function"|"array")></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>await db.typeof("foo").then(console.log);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="uptime"><span class="type-signature"></span>uptime<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;Number>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Returns database connection uptime!</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Number></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>console.log(`Database is up for ${db.uptime} ms.`);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="write"><span class="type-signature">(async) </span>write<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Writes a value to the specified key on the database (Similar to set)!</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>The key to set.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>value</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>The value to set on the key.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ops</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        {}
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Write options.</p>
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>sleep</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+
+
+                
+                </td>
+
+                
+                    <td class="attributes">
+                    
+                        &lt;optional><br>
+                    
+
+                    
+
+                    
+                    </td>
+                
+
+                
+                    <td class="default">
+                    
+                        3500
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Alter the time to sleep for if the response code is 429.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>await db.write("foo", "bar").then(() => console.log("Saved data"));</code></pre>
+
+
+
+<hr>
+        
+    
+
+    
+
+    
+        <h3 class="subsection-title">Events</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:debug">debug</h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Emitted on debug mode</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>Message</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last"><p>Debug message</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>db.on("debug", console.log);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:error">error</h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Emitted when database encounters error</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>Error</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Error</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last"><p>Error Message</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>db.on("error", console.error);</code></pre>
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:ready">ready</h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Emitted when database creates connection</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint example linenums"><code>db.on("ready", () => {
+    console.log("Successfully connected to the database!");
+});</code></pre>
+
+
+
+<hr>
+        
+    
+</article>
+
+</section>
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+</body>
+</html>
