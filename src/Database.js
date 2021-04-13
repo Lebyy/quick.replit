@@ -20,7 +20,7 @@ class Database extends EventEmitter {
         if (!this.url) throw new Error('An URL was not provied/obtained!', 'URLError');
         this.readyAt = new Date();
         this.tries = 3;
-        this.emit('ready');
+        setTimeout(()=>this.emit('ready'),0);
     }
 
     /**

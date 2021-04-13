@@ -18,7 +18,7 @@
 </p>
 
 ## What is Quick.Replit?
-> A quick and easy wraper to interact with the replit database easily and quickly!
+> A quick and easy wraper to interact with the replit database!
 
 ### 📚 [Documentation](https://quickreplit.js.org)
 
