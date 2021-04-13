@@ -38,25 +38,34 @@ class Database extends EventEmitter {
         this.emit('debug', `Setting ${value} to ${key}`);
         const body = await fetch(this.url, {
             method: 'POST',
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: encodeURIComponent(key) + '=' + JSON.stringify(value),
         });
         if (body.status != 200) {
             throw new Error(
-                'The ReplitDBShard URL is invalid! No data was found.',
-                'ReplitDBError',
+                'The Replit Database URL is invalid! No data was found.',
+                'ReplitDBError'
             );
         }
         if (body.status == 429) {
             if (this.tries == 0) {
                 this.tries = 3;
-                return this.emit('error', `Quick.Replit encountered 429 error code on saving ${key} while setting ${value}, Quick.Replit re-tried for 3 times but failed at saving you will have to run the function again after some time`);
+                return this.emit(
+                    'error',
+                    `Quick.Replit encountered 429 error code on saving ${key} while setting ${value}, Quick.Replit re-tried for 3 times but failed at saving you will have to run the function again after some time`
+                );
             }
-            this.emit('error', `Quick.Replit encountered 429 error code on saving ${key} while setting ${value}, Quick.Replit will retry for 3 more times if it fails you will have to run the function again after some time`);
-            return await this._handle429(key, value, ops);
+            this.emit(
+                'error',
+                `Quick.Replit encountered 429 error code on saving ${key} while setting ${value}, Quick.Replit will retry for 3 more times if it fails you will have to run the function again after some time`
+            );
+            ops.set = true;
+            await this._handle429(key, value, ops);
         }
-        if (body.status == 200) this.tries = 3;
+        if (body.status == 200) {
+        this.tries = 3;
         return true;
+        }
     }
 
     /**
@@ -81,7 +90,7 @@ class Database extends EventEmitter {
     async setMany(items = [], ops = {}) {
         if (!Array.isArray(items)) throw new Error('Items must be an Array!', 'ValueError');
         const cleaned = items.filter(
-            (item) => item.key && typeof item.key === 'string',
+            (item) => item.key && typeof item.key === 'string'
         );
         cleaned.forEach(async (clean) => {
             await this.set(clean.key, clean.value, ops);
@@ -105,6 +114,7 @@ class Database extends EventEmitter {
    * Deletes a key from the database!
    * @param {string} key The key to set.
    * @param {object} [ops={}] Delete options.
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise<Boolean>}
    * @example db.delete("foo").then(() => console.log("Deleted data"));
    */
@@ -114,7 +124,25 @@ class Database extends EventEmitter {
         const body = await fetch(this.url + '/' + encodeURIComponent(key), {
             method: 'DELETE',
         });
-        return true;
+        if (body.status == 429) {
+            if (this.tries == 0) {
+                this.tries = 3;
+                return this.emit(
+                    'error',
+                    `Quick.Replit encountered 429 error code on deleting ${key}, Quick.Replit re-tried for 3 times but still failed at fetching you will have to run the function again after some time`
+                );
+            }
+            this.emit(
+                'error',
+                `Quick.Replit encountered 429 error code on deleting ${key}, Quick.Replit will retry for 3 more times if it fails you will have to run the function again after some time`
+            );
+            ops.delete = true;
+            await this._handle429(key, null, ops);
+        }
+        if (body.status == 200 || body.status == 204 || body.status == 404) {
+            if (this.tries != 3) this.tries = 3;
+            return true;
+        }
     }
 
     /**
@@ -122,6 +150,7 @@ class Database extends EventEmitter {
    * @param {string} key The key to set.
    * @param {object} [ops={}] Get options.
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise<any>}
    * @example await db.fetch("foo").then(console.log);
    */
@@ -129,25 +158,45 @@ class Database extends EventEmitter {
         if (!Util.isKey(key)) throw new Error('Invalid key provided!', 'KeyError');
         let data;
         this.emit('debug', `Getting ${key}`);
-        const body = await fetch(
-            this.url + '/' + encodeURIComponent(key),
-        ).then((res) => res.text());
-        if (ops.raw) {
-            return body;
+        let body = await fetch(this.url + '/' + encodeURIComponent(key));
+        if (body.status == 429) {
+            if (this.tries == 0) {
+                this.tries = 3;
+                return this.emit(
+                    'error',
+                    `Quick.Replit encountered 429 error code on fetching ${key}, Quick.Replit re-tried for 3 times but still failed at fetching you will have to run the function again after some time`
+                );
+            }
+            this.emit(
+                'error',
+                `Quick.Replit encountered 429 error code on fetching ${key}, Quick.Replit will retry for 3 more times if it fails you will have to run the function again after some time`
+            );
+            ops.fetch = true;
+            await this._handle429(key, null, ops);
         }
-        if (!body) {
-            return null;
+        if (body.status == 200 || body.status == 404) {
+            if (this.tries != 3) this.tries = 3;
+            body = await body.text();
+            if (ops.raw) {
+                return body;
+            }
+            if (!body) {
+                return null;
+            }
+            let value = body;
+            try {
+                value = JSON.parse(value);
+            } catch (_err) {
+                return this.emit(
+                    'error',
+                    `There was an error parsing the value: ${_err}. Try passing the raw option to get the raw value`
+                );
+            }
+            if (value == null || value == undefined) {
+                return null;
+            }
+            return value;
         }
-        let value = body;
-        try {
-            value = JSON.parse(value);
-        } catch (_err) {
-            return this.emit('error', _err);
-        }
-        if (value === null || value === undefined) {
-            return null;
-        }
-        return value;
     }
 
     /**
@@ -155,6 +204,7 @@ class Database extends EventEmitter {
    * @param {string} key Key
    * @param {object} [ops={}] Fetch options.
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise<any>}
    * @example await db.get("foo").then(console.log);
    */
@@ -166,12 +216,14 @@ class Database extends EventEmitter {
    * Checks if there is a data stored with the given key!
    * @param {string} key Key
    * @param {object} [ops={}] Exists options
+   * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise<Boolean>}
    * @example await db.exists("foo").then(console.log);
    */
     async exists(key, ops = {}) {
         if (!Util.isKey(key)) throw new Error('Invalid key specified!', 'KeyError');
-        const get = await this.get(key);
+        const get = await this.get(key, ops);
         return !!get;
     }
 
@@ -179,17 +231,21 @@ class Database extends EventEmitter {
    * Checks if there is a data stored with the given key! (Similiar to the exists method)
    * @param {string} key Key
    * @param {object} [ops={}] Has options
+   * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise<Boolean>}
    * @example await db.has("foo").then(console.log);
    */
     async has(key, ops = {}) {
-        return await this.exists(key);
+        return await this.exists(key, ops);
     }
 
     /**
    * Checks the type of value stored in the key! (Similar to type method)
    * @param {string} key The key to set.
    * @param {object} [ops={}] TypeOf options
+   * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise<"string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function" | "array">}
    * @example await db.typeof("foo").then(console.log);
    */
@@ -200,6 +256,8 @@ class Database extends EventEmitter {
     /**
    * Returns everything from the database
    * @param {object} [ops={}] All options
+   * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise <Array>}
    * @example let data = await db.all();
    * console.log(`There are total ${data.length} entries.`);
@@ -207,8 +265,8 @@ class Database extends EventEmitter {
     async all(ops = {}) {
         const output = [];
         const outputobj = {};
-        for (const key of await this.listall()) {
-            const value = await this.get(key);
+        for (const key of await this.listall('', ops)) {
+            const value = await this.get(key, ops);
             outputobj.ID = key;
             outputobj.data = value;
             output.push(outputobj);
@@ -219,13 +277,15 @@ class Database extends EventEmitter {
     /**
    * Returns raw data object from the database {key: value}!
    * @param {object} [ops={}] Raw options
+   * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise <Object>}
    * @example await db.raw().then(console.log);
    */
     async raw(ops = {}) {
         const output = {};
-        for (const key of await this.listall()) {
-            const value = await this.get(key);
+        for (const key of await this.listall('', ops)) {
+            const value = await this.get(key, ops);
             output[key] = value;
         }
         return output;
@@ -235,22 +295,37 @@ class Database extends EventEmitter {
    * Returns all of the key's from the database!
    * @param {string} [prefix=""] The prefix to listall keys from.
    * @param {object} [ops={}] TypeOf options
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise <Array>}
    * @example await db.listall().then(console.log);
    */
     async listall(prefix = '', ops = {}) {
         this.emit('debug', 'Listing all the keys from the database...');
-        return await fetch(
-            this.url + `?encode=true&prefix=${encodeURIComponent(prefix)}`,
-        )
-            .then((r) => r.text())
-            .then((t) => {
-                if (t.length === 0) {
-                    return [];
-                }
-                const list = [];
-                return t.split('\n').map(decodeURIComponent);
-            });
+        let body = await fetch(
+            this.url + `?encode=true&prefix=${encodeURIComponent(prefix)}`
+        );
+        if (body.status == 429) {
+            if (this.tries == 0) {
+                this.tries = 3;
+                return this.emit(
+                    'error',
+                    'Quick.Replit encountered 429 error code on listing all the keys, Quick.Replit re-tried for 3 times but still failed at fetching you will have to run the function again after some time'
+                );
+            }
+            this.emit(
+                'error',
+                'Quick.Replit encountered 429 error code on listing all the keys, Quick.Replit will retry for 3 more times if it fails you will have to run the function again after some time'
+            );
+            ops.listall = true;
+            await this._handle429(prefix, null, ops);
+        }
+        if(this.tries != 3) this.tries = 3;
+        body = await body.text();
+        if (body.length === 0) {
+            return [];
+        }
+        const list = [];
+        return body.split('\n').map(decodeURIComponent);
     }
 
     /**
@@ -359,16 +434,18 @@ class Database extends EventEmitter {
    * Fetches everything from the database and sorts by given target!
    * @param {string} key Key
    * @param {object} [ops={}] StartsWith options
+   * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise <Array>}
    * @example const data = await db.startsWith("money", { sort: ".data" });
    */
     async startsWith(key, ops = {}) {
         if (!key || typeof key !== 'string') {
             throw new Error(
-                `Expected key to be a string, but received a ${typeof key}`,
+                `Expected key to be a string, but received a ${typeof key}`
             );
         }
-        const all = await this.all();
+        const all = await this.all(ops);
         return Util.sort(key, all, ops);
     }
 
@@ -425,6 +502,7 @@ class Database extends EventEmitter {
    * @param {string} key key
    * @param {object} [ops={}] Type options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @example console.log(await db.type("foo"));
    * @return {Promise<"string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function" | "array">}
    */
@@ -438,14 +516,15 @@ class Database extends EventEmitter {
     /**
    * Delete's all of the data from the database!
    * @param {object} [ops={}] Clear options
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise <Boolean>}
    * @example const data = await db.clear();
    */
     async clear(ops = {}) {
         this.emit('debug', 'Deleting everything from the database...');
         const promises = [];
-        for (const key of await this.listall()) {
-            promises.push(this.delete(key));
+        for (const key of await this.listall('', ops)) {
+            promises.push(this.delete(key, ops));
         }
         return true;
     }
@@ -453,6 +532,7 @@ class Database extends EventEmitter {
     /**
    * Delete's all of the data from the database! (similar to the clear method)
    * @param {object} [ops={}] DeleteAll options
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise <Boolean>}
    * @example const data = await db.deleteAll();
    */
@@ -465,19 +545,19 @@ class Database extends EventEmitter {
    * Import's the specific data from another database into replit database!
    * @param {Array} data Data
    * @param {object} [ops={}] Import options
-   * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise <Boolean>}
    * @example const data = QuickDB.all();
    * db.import(data);
    */
-    async import(data = [], ops={}) {
+    async import(data = [], ops = {}) {
         return new Promise(async (resolve, reject) => {
             if (!Array.isArray(data)) {
                 return reject(
                     new Error(
                         `Data type must be Array, received ${typeof data}!`,
-                        'DataTypeError',
-                    ),
+                        'DataTypeError'
+                    )
                 );
             }
             if (data.length < 1) return resolve(false);
@@ -486,8 +566,8 @@ class Database extends EventEmitter {
                     return reject(
                         new Error(
                             `Data is missing ${!x.ID ? 'ID' : 'data'} path!`,
-                            'DataImportError',
-                        ),
+                            'DataImportError'
+                        )
                     );
                 }
                 setTimeout(async () => {
@@ -501,13 +581,16 @@ class Database extends EventEmitter {
     /**
    * Export's all of the data from the database to quick.db!
    * @param {any} quickdb Quick.db instance
+   * @param {object} [ops={}] export options
+   * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise<any[]>}
    * @example const data = await db.exportToQuickDB(quickdb);
    */
-    async exportToQuickDB(quickdb) {
+    async exportToQuickDB(quickdb, ops = {}) {
         if (!quickdb) throw new Error('Quick.db instance was not provided!');
         this.emit('debug', 'Exporting all data from the database to quick.db...');
-        const data = await this.all();
+        const data = await this.all(ops);
         data.forEach((item) => {
             quickdb.set(item.ID, item.data);
         });
@@ -517,13 +600,16 @@ class Database extends EventEmitter {
     /**
    * Export's all of the data from the database to quickmongo!
    * @param {any} quickmongo QuickMongo instance
+   * @param {object} [ops={}] export options
+   * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
+   * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
    * @return {Promise<any[]>}
    * @example const data = await db.exportToQuickMongo(quickmongo);
    */
-    async exportToQuickMongo(quickmongo) {
+    async exportToQuickMongo(quickmongo, ops = {}) {
         if (!quickmongo) throw new Error('Quick Mongo instance was not provided!');
         this.emit('debug', 'Exporting all data from the database to quickmongo...');
-        const data = await this.all();
+        const data = await this.all(ops);
         data.forEach(async (item) => {
             await quickmongo.set(item.ID, item.data);
         });
@@ -572,13 +658,24 @@ class Database extends EventEmitter {
    * @private
    * @return {Promise<boolean>}
    */
-    async _handle429(key, value, ops) {
+    async _handle429(key, value, ops = {}) {
         this.tries--;
         async function sleep(ms) {
             return new Promise((resolve) => setTimeout(resolve, ms));
         }
         await sleep(ops.sleep || 3500);
-        return this.set(key, value, ops);
+        if (ops.fetch) {
+            return this.fetch(key, ops);
+        }
+        if (ops.delete) {
+            return this.delete(key, ops);
+        }
+        if (ops.set) {
+            return this.set(key, value, ops);
+        }
+        if (ops.listall) {
+            return this.listall(key, ops);
+        }
     }
 
     /**
