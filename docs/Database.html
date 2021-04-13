@@ -193,7 +193,7 @@ const db = new Database("url");</code></pre>
     
 
     
-    <h4 class="name" id="add"><span class="type-signature">(async) </span>add<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="add"><span class="type-signature">(async) </span>add<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
     
 
     
@@ -448,6 +448,15 @@ const db = new Database("url");</code></pre>
         
 
 
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Boolean></span>
+
+</span>
+    </li>
+</ul>
+
     
 
 
@@ -466,7 +475,7 @@ const db = new Database("url");</code></pre>
     
 
     
-    <h4 class="name" id="all"><span class="type-signature">(async) </span>all<span class="signature">(ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="all"><span class="type-signature">(async) </span>all<span class="signature">(ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
     
 
     
@@ -690,6 +699,15 @@ const db = new Database("url");</code></pre>
         
 
 
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Array></span>
+
+</span>
+    </li>
+</ul>
+
     
 
 
@@ -709,7 +727,7 @@ console.log(`There are total ${data.length} entries.`);</code></pre>
     
 
     
-    <h4 class="name" id="clear"><span class="type-signature">(async) </span>clear<span class="signature">(ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="clear"><span class="type-signature">(async) </span>clear<span class="signature">(ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
     
 
     
@@ -893,6 +911,15 @@ console.log(`There are total ${data.length} entries.`);</code></pre>
 
         
 
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Boolean></span>
+
+</span>
+    </li>
+</ul>
 
     
 
@@ -1159,7 +1186,7 @@ console.log(`There are total ${data.length} entries.`);</code></pre>
     
 
     
-    <h4 class="name" id="deleteAll"><span class="type-signature">(async) </span>deleteAll<span class="signature">(ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="deleteAll"><span class="type-signature">(async) </span>deleteAll<span class="signature">(ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
     
 
     
@@ -1343,6 +1370,15 @@ console.log(`There are total ${data.length} entries.`);</code></pre>
 
         
 
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Boolean></span>
+
+</span>
+    </li>
+</ul>
 
     
 
@@ -3078,7 +3114,7 @@ console.log(`There are total ${data.length} entries.`);</code></pre>
     
 
     
-    <h4 class="name" id="import"><span class="type-signature">(async) </span>import<span class="signature">(data, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="import"><span class="type-signature">(async) </span>import<span class="signature">(data, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
     
 
     
@@ -3298,6 +3334,15 @@ console.log(`There are total ${data.length} entries.`);</code></pre>
         
 
 
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Boolean></span>
+
+</span>
+    </li>
+</ul>
+
     
 
 
@@ -3317,7 +3362,7 @@ db.import(data);</code></pre>
     
 
     
-    <h4 class="name" id="listall"><span class="type-signature">(async) </span>listall<span class="signature">(prefix<span class="signature-attributes">opt</span>, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="listall"><span class="type-signature">(async) </span>listall<span class="signature">(prefix<span class="signature-attributes">opt</span>, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
     
 
     
@@ -3541,6 +3586,15 @@ db.import(data);</code></pre>
         
 
 
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Array></span>
+
+</span>
+    </li>
+</ul>
+
     
 
 
@@ -3559,7 +3613,7 @@ db.import(data);</code></pre>
     
 
     
-    <h4 class="name" id="math"><span class="type-signature">(async) </span>math<span class="signature">(key, operator, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="math"><span class="type-signature">(async) </span>math<span class="signature">(key, operator, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
     
 
     
@@ -3888,6 +3942,15 @@ db.import(data);</code></pre>
         
 
 
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Boolean></span>
+
+</span>
+    </li>
+</ul>
+
     
 
 
@@ -4051,7 +4114,7 @@ db.import(data);</code></pre>
     
 
     
-    <h4 class="name" id="pull"><span class="type-signature">(async) </span>pull<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="pull"><span class="type-signature">(async) </span>pull<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
     
 
     
@@ -4345,6 +4408,15 @@ db.import(data);</code></pre>
         
 
 
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Boolean></span>
+
+</span>
+    </li>
+</ul>
+
     
 
 
@@ -4363,7 +4435,7 @@ db.import(data);</code></pre>
     
 
     
-    <h4 class="name" id="push"><span class="type-signature">(async) </span>push<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="push"><span class="type-signature">(async) </span>push<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
     
 
     
@@ -4657,6 +4729,15 @@ db.import(data);</code></pre>
         
 
 
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Boolean></span>
+
+</span>
+    </li>
+</ul>
+
     
 
 
@@ -4675,7 +4756,7 @@ db.import(data);</code></pre>
     
 
     
-    <h4 class="name" id="raw"><span class="type-signature">(async) </span>raw<span class="signature">(ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="raw"><span class="type-signature">(async) </span>raw<span class="signature">(ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
     
 
     
@@ -4898,6 +4979,15 @@ db.import(data);</code></pre>
 
         
 
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Object></span>
+
+</span>
+    </li>
+</ul>
 
     
 
@@ -5452,7 +5542,7 @@ await db.setMany(data)</code></pre>
     
 
     
-    <h4 class="name" id="startsWith"><span class="type-signature">(async) </span>startsWith<span class="signature">(key, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="startsWith"><span class="type-signature">(async) </span>startsWith<span class="signature">(key, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
     
 
     
@@ -5711,6 +5801,15 @@ await db.setMany(data)</code></pre>
         
 
 
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Array></span>
+
+</span>
+    </li>
+</ul>
+
     
 
 
@@ -5729,7 +5828,7 @@ await db.setMany(data)</code></pre>
     
 
     
-    <h4 class="name" id="subtract"><span class="type-signature">(async) </span>subtract<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="subtract"><span class="type-signature">(async) </span>subtract<span class="signature">(key, value, ops<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
     
 
     
@@ -5983,6 +6082,15 @@ await db.setMany(data)</code></pre>
 
         
 
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Boolean></span>
+
+</span>
+    </li>
+</ul>
 
     
 
