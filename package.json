@@ -1,7 +1,7 @@
 {
   "name": "quick.replit",
-  "version": "1.0.0",
-  "description": "A quick and easy wraper to interact with the replit database easily and quickly!",
+  "version": "1.0.1",
+  "description": "A quick and easy wraper to interact with the replit database!",
   "main": "index.js",
   "types": "typings/index.d.ts",
   "author": "Lebyy",
