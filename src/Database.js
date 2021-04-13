@@ -258,7 +258,7 @@ class Database extends EventEmitter {
    * @param {object} [ops={}] All options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Array>}
+   * @return {Promise<Array>}
    * @example let data = await db.all();
    * console.log(`There are total ${data.length} entries.`);
    */
@@ -279,7 +279,7 @@ class Database extends EventEmitter {
    * @param {object} [ops={}] Raw options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Object>}
+   * @return {Promise<Object>}
    * @example await db.raw().then(console.log);
    */
     async raw(ops = {}) {
@@ -296,7 +296,7 @@ class Database extends EventEmitter {
    * @param {string} [prefix=""] The prefix to listall keys from.
    * @param {object} [ops={}] TypeOf options
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Array>}
+   * @return {Promise<Array>}
    * @example await db.listall().then(console.log);
    */
     async listall(prefix = '', ops = {}) {
@@ -336,7 +336,7 @@ class Database extends EventEmitter {
    * @param {object} [ops={}] Math options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example db.math("items", "+", 200).then(() => console.log("Added 200 items"));
    */
     async math(key, operator, value, ops = {}) {
@@ -410,7 +410,7 @@ class Database extends EventEmitter {
    * @param {number} value value
    * @param {object} [ops={}] Add options
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example db.add("items", 200).then(() => console.log("Added 200 items"));
    */
     async add(key, value, ops = {}) {
@@ -423,7 +423,7 @@ class Database extends EventEmitter {
    * @param {number} value Value
    * @param {object} [ops={}] Add options
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example db.subtract("items", 100).then(() => console.log("Removed 100 items"));
    */
     async subtract(key, value, ops = {}) {
@@ -436,7 +436,7 @@ class Database extends EventEmitter {
    * @param {object} [ops={}] StartsWith options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Array>}
+   * @return {Promise<Array>}
    * @example const data = await db.startsWith("money", { sort: ".data" });
    */
     async startsWith(key, ops = {}) {
@@ -456,7 +456,7 @@ class Database extends EventEmitter {
    * @param {object} [ops={}] Push options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example const data = await db.push("foo", "bar");
    */
     async push(key, value, ops = {}) {
@@ -481,7 +481,7 @@ class Database extends EventEmitter {
    * @param {object} [ops={}] Pull options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example const data = await db.pull("foo", "bar");
    */
     async pull(key, value, ops = {}) {
@@ -517,7 +517,7 @@ class Database extends EventEmitter {
    * Delete's all of the data from the database!
    * @param {object} [ops={}] Clear options
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example const data = await db.clear();
    */
     async clear(ops = {}) {
@@ -533,7 +533,7 @@ class Database extends EventEmitter {
    * Delete's all of the data from the database! (similar to the clear method)
    * @param {object} [ops={}] DeleteAll options
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example const data = await db.deleteAll();
    */
     async deleteAll(ops = {}) {
@@ -546,7 +546,7 @@ class Database extends EventEmitter {
    * @param {Array} data Data
    * @param {object} [ops={}] Import options
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example const data = QuickDB.all();
    * db.import(data);
    */

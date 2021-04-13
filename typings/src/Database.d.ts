@@ -140,7 +140,7 @@ declare class Database {
    * @param {object} [ops={}] All options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Array>}
+   * @return {Promise<Array>}
    * @example let data = await db.all();
    * console.log(`There are total ${data.length} entries.`);
    */
@@ -153,7 +153,7 @@ declare class Database {
    * @param {object} [ops={}] Raw options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Object>}
+   * @return {Promise<Object>}
    * @example await db.raw().then(console.log);
    */
     raw(ops?: {
@@ -165,7 +165,7 @@ declare class Database {
    * @param {string} [prefix=""] The prefix to listall keys from.
    * @param {object} [ops={}] TypeOf options
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Array>}
+   * @return {Promise<Array>}
    * @example await db.listall().then(console.log);
    */
     listall(prefix?: string, ops?: {
@@ -179,7 +179,7 @@ declare class Database {
    * @param {object} [ops={}] Math options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example db.math("items", "+", 200).then(() => console.log("Added 200 items"));
    */
     math(key: string, operator: string, value: number, ops?: {
@@ -192,7 +192,7 @@ declare class Database {
    * @param {number} value value
    * @param {object} [ops={}] Add options
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example db.add("items", 200).then(() => console.log("Added 200 items"));
    */
     add(key: string, value: number, ops?: {
@@ -204,7 +204,7 @@ declare class Database {
    * @param {number} value Value
    * @param {object} [ops={}] Add options
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example db.subtract("items", 100).then(() => console.log("Removed 100 items"));
    */
     subtract(key: string, value: number, ops?: {
@@ -216,7 +216,7 @@ declare class Database {
    * @param {object} [ops={}] StartsWith options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Array>}
+   * @return {Promise<Array>}
    * @example const data = await db.startsWith("money", { sort: ".data" });
    */
     startsWith(key: string, ops?: {
@@ -230,7 +230,7 @@ declare class Database {
    * @param {object} [ops={}] Push options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example const data = await db.push("foo", "bar");
    */
     push(key: string, value: string, ops?: {
@@ -244,7 +244,7 @@ declare class Database {
    * @param {object} [ops={}] Pull options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example const data = await db.pull("foo", "bar");
    */
     pull(key: string, value: string, ops?: {
@@ -268,7 +268,7 @@ declare class Database {
    * Delete's all of the data from the database!
    * @param {object} [ops={}] Clear options
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example const data = await db.clear();
    */
     clear(ops?: {
@@ -278,7 +278,7 @@ declare class Database {
    * Delete's all of the data from the database! (similar to the clear method)
    * @param {object} [ops={}] DeleteAll options
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example const data = await db.deleteAll();
    */
     deleteAll(ops?: {
@@ -289,7 +289,7 @@ declare class Database {
    * @param {Array} data Data
    * @param {object} [ops={}] Import options
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
-   * @return {Promise <Boolean>}
+   * @return {Promise<Boolean>}
    * @example const data = QuickDB.all();
    * db.import(data);
    */
