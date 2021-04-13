@@ -20,7 +20,7 @@
 ## What is Quick.Replit?
 > A quick and easy wraper to interact with the replit database easily and quickly!
 
-### 🏠 [Homepage](https://quickreplit.js.org)
+### 📚 [Documentation](https://quickreplit.js.org)
 
 ## Install
 
