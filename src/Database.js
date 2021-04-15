@@ -187,10 +187,11 @@ class Database extends EventEmitter {
             try {
                 value = JSON.parse(value);
             } catch (_err) {
-                return this.emit(
+                this.emit(
                     'error',
-                    `There was an error parsing the value: ${_err}. Try passing the raw option to get the raw value`
+                    `There was an error parsing the value: ${_err}. Quick.Replit returned a raw un-parsed value.`
                 );
+                return body;
             }
             if (value == null || value == undefined) {
                 return null;
@@ -550,7 +551,7 @@ class Database extends EventEmitter {
    * @example const data = QuickDB.all();
    * db.import(data);
    */
-    async import(data = [], ops = {}) {
+    import(data = [], ops = {}) {
         return new Promise(async (resolve, reject) => {
             if (!Array.isArray(data)) {
                 return reject(
@@ -571,7 +572,7 @@ class Database extends EventEmitter {
                     );
                 }
                 setTimeout(async () => {
-                    await this.set(x.ID, x.data, ops);
+                     this.set(x.ID, x.data, ops);
                 }, 150 * (i + 1));
             });
             return resolve(true);
