@@ -112,8 +112,7 @@
 const db = new Database(process.env.REPLIT_DB_URL)
 
 //Set
-await db.set(&quot;foo&quot;, &quot;bar&quot;)
-.then(() => console.log(&quot;ID 'foo' is saved with the value 'bar'!&quot;));
+db.set(&quot;foo&quot;, &quot;bar&quot;).then(() => console.log(&quot;ID 'foo' is saved with the value 'bar'!&quot;));
 
 //Get
 db.get(&quot;foo&quot;).then(data => {
@@ -129,13 +128,11 @@ db.all().then(data => {
 });
 
 //Add
-db.add(&quot;foo&quot;, 1)
-.then(() => console.log(&quot;Added +1 to ID 'foo'!&quot;));
+db.add(&quot;foo&quot;, 1).then(() => console.log(&quot;Added +1 to ID 'foo'!&quot;));
 });
 
 //Subtract
-db.subtract(&quot;foo&quot;, 1)
-.then(() => console.log(&quot;Subtracted 1 from ID 'foo'!&quot;));
+db.subtract(&quot;foo&quot;, 1).then(() => console.log(&quot;Subtracted 1 from ID 'foo'!&quot;));
 });
 
 //Push
