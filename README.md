@@ -48,8 +48,7 @@ const { Database } = require("quick.replit");
 const db = new Database(process.env.REPLIT_DB_URL)
 
 //Set
-await db.set("foo", "bar")
-.then(() => console.log("ID 'foo' is saved with the value 'bar'!"));
+db.set("foo", "bar").then(() => console.log("ID 'foo' is saved with the value 'bar'!"));
 
 //Get
 db.get("foo").then(data => {
@@ -65,13 +64,11 @@ db.all().then(data => {
 });
 
 //Add
-db.add("foo", 1)
-.then(() => console.log("Added +1 to ID 'foo'!"));
+db.add("foo", 1).then(() => console.log("Added +1 to ID 'foo'!"));
 });
 
 //Subtract
-db.subtract("foo", 1)
-.then(() => console.log("Subtracted 1 from ID 'foo'!"));
+db.subtract("foo", 1).then(() => console.log("Subtracted 1 from ID 'foo'!"));
 });
 
 //Push
