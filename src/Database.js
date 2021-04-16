@@ -35,11 +35,12 @@ class Database extends EventEmitter {
     async set(key, value, ops = {}) {
         if (!Util.isKey(key)) throw new Error('Invalid key provided!', 'KeyError');
         if (!Util.isValue(value)) throw new Error('Invalid value provided!', 'ValueError');
+        if (!ops.sleep || typeof ops.sleep !== "number" || ops.sleep < 1) ops.sleep = 3500
         this.emit('debug', `Setting ${value} to ${key}`);
         const body = await fetch(this.url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: encodeURIComponent(key) + '=' + JSON.stringify(value),
+            body: encodeURIComponent(key) + '=' + encodeURIComponent(JSON.stringify(value)),
         });
         if (body.status != 200) {
             throw new Error(
@@ -120,6 +121,7 @@ class Database extends EventEmitter {
    */
     async delete(key, ops = {}) {
         if (!Util.isKey(key)) throw new Error('Invalid key provided!', 'KeyError');
+        if (!ops.sleep || typeof ops.sleep !== "number" || ops.sleep < 1) ops.sleep = 3500
         this.emit('debug', `Deleting ${key}`);
         const body = await fetch(this.url + '/' + encodeURIComponent(key), {
             method: 'DELETE',
@@ -156,6 +158,8 @@ class Database extends EventEmitter {
    */
     async fetch(key, ops = {}) {
         if (!Util.isKey(key)) throw new Error('Invalid key provided!', 'KeyError');
+        if (!ops.sleep || typeof ops.sleep !== "number" || ops.sleep < 1) ops.sleep = 3500
+        if (typeof ops.raw !== "boolean") ops.raw = false;
         let data;
         this.emit('debug', `Getting ${key}`);
         let body = await fetch(this.url + '/' + encodeURIComponent(key));
@@ -177,6 +181,7 @@ class Database extends EventEmitter {
         if (body.status == 200 || body.status == 404) {
             if (this.tries != 3) this.tries = 3;
             body = await body.text();
+            body = decodeURIComponent(body);
             if (ops.raw) {
                 return body;
             }
@@ -187,10 +192,6 @@ class Database extends EventEmitter {
             try {
                 value = JSON.parse(value);
             } catch (_err) {
-                this.emit(
-                    'error',
-                    `There was an error parsing the value: ${_err}. Quick.Replit returned a raw un-parsed value.`
-                );
                 return body;
             }
             if (value == null || value == undefined) {
@@ -259,19 +260,19 @@ class Database extends EventEmitter {
    * @param {object} [ops={}] All options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
+   * @param {number} [ops.limit=0] Fetch data only upto the specified limit (0 = Unlimited).
    * @return {Promise<Array>}
    * @example let data = await db.all();
    * console.log(`There are total ${data.length} entries.`);
    */
     async all(ops = {}) {
-        const output = [];
-        const outputobj = {};
+        if (!ops.limit || typeof ops.limit !== "number" || ops.limit < 1) ops.limit = 0;
+        let output = [];
         for (const key of await this.listall('', ops)) {
             const value = await this.get(key, ops);
-            outputobj.ID = key;
-            outputobj.data = value;
-            output.push(outputobj);
+            output.push({ID: key, data: value});
         }
+        if (!!ops.limit) output = output.slice(0, ops.limit);
         return output;
     }
 
@@ -280,15 +281,18 @@ class Database extends EventEmitter {
    * @param {object} [ops={}] Raw options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
+   * @param {number} [ops.limit=0] Fetch data only upto the specified limit (0 = Unlimited).
    * @return {Promise<Object>}
    * @example await db.raw().then(console.log);
    */
     async raw(ops = {}) {
-        const output = {};
+        if (!ops.limit || typeof ops.limit !== "number" || ops.limit < 1) ops.limit = 0;
+        let output = {};
         for (const key of await this.listall('', ops)) {
             const value = await this.get(key, ops);
             output[key] = value;
         }
+        if (!!ops.limit) output = output.slice(0, ops.limit);
         return output;
     }
 
@@ -302,6 +306,7 @@ class Database extends EventEmitter {
    */
     async listall(prefix = '', ops = {}) {
         this.emit('debug', 'Listing all the keys from the database...');
+        if (!ops.sleep || typeof ops.sleep !== "number" || ops.sleep < 1) ops.sleep = 3500;
         let body = await fetch(
             this.url + `?encode=true&prefix=${encodeURIComponent(prefix)}`
         );
@@ -437,6 +442,7 @@ class Database extends EventEmitter {
    * @param {object} [ops={}] StartsWith options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
+   * @param {number} [ops.limit=0] Fetch data only upto the specified limit (0 = Unlimited).
    * @return {Promise<Array>}
    * @example const data = await db.startsWith("money", { sort: ".data" });
    */
@@ -585,6 +591,7 @@ class Database extends EventEmitter {
    * @param {object} [ops={}] export options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
+   * @param {number} [ops.limit=0] Fetch data only upto the specified limit (0 = Unlimited).
    * @return {Promise<any[]>}
    * @example const data = await db.exportToQuickDB(quickdb);
    */
@@ -604,6 +611,7 @@ class Database extends EventEmitter {
    * @param {object} [ops={}] export options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
+   * @param {number} [ops.limit=0] Fetch data only upto the specified limit (0 = Unlimited).
    * @return {Promise<any[]>}
    * @example const data = await db.exportToQuickMongo(quickmongo);
    */

@@ -140,6 +140,7 @@ declare class Database {
    * @param {object} [ops={}] All options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
+   * @param {number} [ops.limit=0] Fetch data only upto the specified limit (0 = Unlimited).
    * @return {Promise<Array>}
    * @example let data = await db.all();
    * console.log(`There are total ${data.length} entries.`);
@@ -147,18 +148,21 @@ declare class Database {
     all(ops?: {
         raw?: boolean;
         sleep?: number;
+        limit?: number;
     }): Promise<any[]>;
     /**
    * Returns raw data object from the database {key: value}!
    * @param {object} [ops={}] Raw options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
+   * @param {number} [ops.limit=0] Fetch data only upto the specified limit (0 = Unlimited).
    * @return {Promise<Object>}
    * @example await db.raw().then(console.log);
    */
     raw(ops?: {
         raw?: boolean;
         sleep?: number;
+        limit?: number;
     }): Promise<any>;
     /**
    * Returns all of the key's from the database!
@@ -216,12 +220,14 @@ declare class Database {
    * @param {object} [ops={}] StartsWith options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
+   * @param {number} [ops.limit=0] Fetch data only upto the specified limit (0 = Unlimited).
    * @return {Promise<Array>}
    * @example const data = await db.startsWith("money", { sort: ".data" });
    */
     startsWith(key: string, ops?: {
         raw?: boolean;
         sleep?: number;
+        limit?: number;
     }): Promise<any[]>;
     /**
    * Pushe's the specific value into an array to the key in the database!
@@ -302,12 +308,14 @@ declare class Database {
    * @param {object} [ops={}] export options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
+   * @param {number} [ops.limit=0] Fetch data only upto the specified limit (0 = Unlimited).
    * @return {Promise<any[]>}
    * @example const data = await db.exportToQuickDB(quickdb);
    */
     exportToQuickDB(quickdb: any, ops?: {
         raw?: boolean;
         sleep?: number;
+        limit?: number;
     }): Promise<any[]>;
     /**
    * Export's all of the data from the database to quickmongo!
@@ -315,12 +323,14 @@ declare class Database {
    * @param {object} [ops={}] export options
    * @param {boolean} [ops.raw=false] If set to true, it will return the raw un-parsed data.
    * @param {number} [ops.sleep=3500] Alter the time to sleep for if the response code is 429.
+   * @param {number} [ops.limit=0] Fetch data only upto the specified limit (0 = Unlimited).
    * @return {Promise<any[]>}
    * @example const data = await db.exportToQuickMongo(quickmongo);
    */
     exportToQuickMongo(quickmongo: any, ops?: {
         raw?: boolean;
         sleep?: number;
+        limit?: number;
     }): Promise<any[]>;
     /**
    * Write latency
